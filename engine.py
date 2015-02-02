@@ -33,7 +33,7 @@ class Game:
         while not valid_move:
             move       = get_move()
             origin     = move[0]
-            piece      = self.square(*origin)
+            piece      = self.at(*origin)
             valid_move = piece.valid(move) and piece.color == self.turn
 
         piece.move((origin, destination))
@@ -56,7 +56,7 @@ class Game:
         line   = input("line: ")
         return (column, line)
 
-    def square(column, line):
+    def at(column, line):
         """
         Returns the piece at given position.
         This function interfaces with position tuples nicer than
