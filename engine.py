@@ -95,11 +95,12 @@ class Game:
         Raises a InvalidMoveException if no piece is present at the given
         location
         """
-        opiece = at(*origin)
+        opiece = self.at(*origin)
 
         if (not opiece.is_move_valid(origin, destination)
             or  opiece.is_ally(destination)):
             raise InvalidMoveException
 
-        at(*destination) = at(*origin)
-        at(*origin)      = None
+        self.board[destination[0], destination[1]] = self.at(*origin)
+        self.board[origin[0],      orign[1]]       = self.at(*origin)
+
