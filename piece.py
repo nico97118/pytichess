@@ -2,18 +2,33 @@
 
 class Piece:
 
-    def __init__(self, color):
+    def __init__(self, color,name):
         self.color = color
+        self.name = name
 
-    def move(self, origine, destination):
-        if is_move_valid(origine,destination):
-            #move on the table
-        if is_ennemy(destination):
-            #remove ennemy
+    def is_move_valid(self, origine,destination):
+        print("This piece has no move, please report")
 
     def is_ennemy(self,destination):
-        pass
-        #if destination is not same color : return True
+        if Game.at(destination) != self.color:
+            return True
+        else:
+            return False
+        
+    def is_ally(self,destination):
+        if Game.at(destination) == self.color:
+            return True
+        else:
+            return False
+
+    def move(self, origine, destination):
+        if is_move_valid(self, origine, destination) and not is_ally(
+                destination):
+            if is_ennemy(destination):
+                print(self.name)
+            Game.at(origine) = None
+            Game.at(destination) = self
+
 
 class King(Piece):
     def is_move_valid(self, origine, destination):
@@ -21,7 +36,6 @@ class King(Piece):
         dc, dl = destination
         if origine == destination:
             return False
-        #if (dc,dl) same color : return False
 
         for i in range(-1, 1):
             for j in range(-1, 1):
