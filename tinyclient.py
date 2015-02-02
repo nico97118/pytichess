@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 
+import engine
+from piece      import Piece
+from exceptions import *
+
 def main():
-    game         = Game()
+    game         = engine.Game()
     Piece.game   = game
     column_names = "abcdefgh"
     winner       = None
@@ -11,13 +15,13 @@ def main():
 
         for column in game.board:
             for line in column:
-                square = game.square(column, line):
+                square = game.square(column, line)
                 if square is not None:
                     print(square.color,
                           square.name,
                           column_names[column] + str(line))
 
-        print "-" * 40
+        print("-" * 40)
 
     if winner == game.player1_color:
         print("You win!")
