@@ -1,7 +1,7 @@
 
 
 class Piece:
-    
+
     def __init__(self, color,name):
         self.color = color
         self.name = name
@@ -12,9 +12,15 @@ class Piece:
     def is_ennemy(self,destination):
         if Game.at(destination) != self.color:
             return True
+        else:
+            return False
+        
     def is_ally(self,destination):
         if Game.at(destination) == self.color:
             return True
+        else:
+            return False
+
     def move(self, origine, destination):
         if is_move_valid(self, origine, destination) and not is_ally(
                 destination):
