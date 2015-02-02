@@ -42,7 +42,7 @@ class Game:
                 return self.player2_color
         return None
 
-    def init_board():
+    def init_board(self):
         """
         Initializes the board with the classical chess starting position
         """
