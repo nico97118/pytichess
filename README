@@ -1,1 +1,39 @@
-Starting
+Description
+===========
+
+This is a small and simple chess game in python.
+
+It is intended as a pet project.
+
+Documentation
+=============
+
+Dependencies
+============
+
+Right now it only relies on the standard python library, but it is a very
+unstable project.
+
+TODO
+====
+
+Everything.
+
+- An engine
+- A networking layer
+- Interfaces
+- ...
+
+License
+=======
+
+This program is under the GPLv3 License.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+Authors
+=======
+
+Nicolas Loridon
+Cédric Picard
