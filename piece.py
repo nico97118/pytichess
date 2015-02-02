@@ -14,20 +14,12 @@ class Piece:
             return True
         else:
             return False
-        
+
     def is_ally(self,destination):
         if Game.at(destination) == self.color:
             return True
         else:
             return False
-
-    def move(self, origine, destination):
-        if is_move_valid(self, origine, destination) and not is_ally(
-                destination):
-            if is_ennemy(destination):
-                print(self.name)
-            Game.at(origine) = None
-            Game.at(destination) = self
 
 
 class King(Piece):

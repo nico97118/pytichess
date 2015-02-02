@@ -57,3 +57,18 @@ class Game:
         the array access.
         """
         return self.board[column][line]
+
+    def move(origin, destination):
+        """
+        Moves a piece from origin to destination
+        Raises a InvalidMoveException if no piece is present at the given
+        location
+        """
+        opiece = at(*origin)
+
+        if (not opiece.is_move_valid(origin, destination)
+            or  opiece.is_ally(destination)):
+            raise InvalidMoveException
+
+        at(*destination) = at(*origin)
+        at(*origin)      = None
