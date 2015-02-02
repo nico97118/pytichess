@@ -11,6 +11,8 @@ class Piece:
         if is_ennemy(destination):
             #remove ennemy
 
+    def is_move_valid(self, origine,):
+
     def is_ennemy(self,destination):
         pass
         #if destination is not same color : return True
