@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+from exceptions import *
+
 class Game:
     def __init__(self, player_color="white", netinfo=None):
         """
