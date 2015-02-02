@@ -18,12 +18,6 @@ class Game:
 
         self.init_board()
 
-    def init_board(self):
-        """
-        Initializes the board to the classical starting position
-        """
-        # TODO
-
     def play(self):
         """
         Plays a turn of the game, returns None.
