@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import piece
 from exceptions import *
 
 class Game:
@@ -41,14 +42,44 @@ class Game:
                 return self.player2_color
         return None
 
+    def init_board():
+        """
+        Initializes the board with the classical chess starting position
+        """
+        self.board[0][0] = piece.Rook("white")
+        self.board[1][0] = piece.Knight("white")
+        self.board[2][0] = piece.Bishop("white")
+        self.board[3][0] = piece.Queen("white")
+        self.board[4][0] = piece.King("white")
+        self.board[5][0] = piece.Bishop("white")
+        self.board[6][0] = piece.Knight("white")
+        self.board[7][0] = piece.Rook("white")
+
+        self.board[0][7] = piece.Rook("black")
+        self.board[1][7] = piece.Knight("black")
+        self.board[2][7] = piece.Bishop("black")
+        self.board[3][7] = piece.Queen("black")
+        self.board[4][7] = piece.King("black")
+        self.board[5][7] = piece.Bishop("black")
+        self.board[6][7] = piece.Knight("black")
+        self.board[7][7] = piece.Rook("black")
+
+        for i in range(8):
+            self.board[i][1] = piece.Pawn("white")
+            self.board[i][1] = piece.Pawn("black")
+
+
     def get_move(self):
         """
         Returns a move = (origin, destination).
         This is only a debug implementation and may be overriden by the client.
         """
-        column = input("column: ")
-        line   = input("line: ")
-        return (column, line)
+        o_column = input("column: ")
+        o_line   = input("line: ")
+        d_column = input("column: ")
+        d_line   = input("line: ")
+        return ((o_column-1, o_line-1),
+                (d_column-1, d_line-1))
 
     def at(column, line):
         """
