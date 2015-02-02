@@ -1,7 +1,6 @@
 
 
 class Piece:
-
     def __init__(self, color,name):
         self.color = color
         self.name = name
@@ -45,12 +44,12 @@ class Queen(Piece):
             return False
         if oc-dc == ol-dl: # is Diagonal
             return True
-        if oc == dc || ol == dl: # Same Line or col
+        if oc == dc or ol == dl: # Same Line or col
             return True
-        else
+        else:
             return False
 
-class Rock(Piece):
+class Rook(Piece):
     def is_move_valid(self, origine, destination):
         oc, ol = origine
         dc, dl = destination
@@ -58,7 +57,7 @@ class Rock(Piece):
             return False
         if oc == dc or ol == dl: # Same line or col
             return True
-        else
+        else:
             return False
 
 class Bishop(Piece):
