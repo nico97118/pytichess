@@ -2,7 +2,7 @@
 
 class Piece:
 
-    def __init__(self, color,name):
+    def __init__(self, color):
         self.color = color
         self.name = name
 
@@ -23,6 +23,10 @@ class Piece:
 
 
 class King(Piece):
+    def __init__(self,color):
+        self.color= color
+        self.name = "King"
+
     def is_move_valid(self, origine, destination):
         oc, ol = origine
         dc, dl = destination
@@ -36,6 +40,9 @@ class King(Piece):
         return False
 
 class Queen(Piece):
+    def __init__(self, color):
+        self.color = color
+        self.name  = "Queen"
 
 
     def is_move_valid(self, origine, destination):
@@ -45,12 +52,16 @@ class Queen(Piece):
             return False
         if oc-dc == ol-dl: # is Diagonal
             return True
-        if oc == dc || ol == dl: # Same Line or col
+        if oc == dc or ol == dl: # Same Line or col
             return True
-        else
+        else:
             return False
 
-class Rock(Piece):
+class Rook(Piece):
+    def __init__(self, color):
+        self.color = color
+        self.name = "Rook"
+
     def is_move_valid(self, origine, destination):
         oc, ol = origine
         dc, dl = destination
@@ -58,10 +69,14 @@ class Rock(Piece):
             return False
         if oc == dc or ol == dl: # Same line or col
             return True
-        else
+        else:
             return False
 
 class Bishop(Piece):
+    def __init__(self,color):
+        self.color = color
+        self.name = "Bishop"
+
     def is_move_valid(self, origine, destination):
         oc, ol = origine
         dc, dl = destination
@@ -73,6 +88,10 @@ class Bishop(Piece):
             return False
 
 class Knight(Piece):
+    def __init__(self, color):
+        self.color = color
+        self.name = "Knight"
+
     def is_move_valid(self, origine, destination):
         oc, ol = origine
         dc, dl = destination
@@ -88,6 +107,9 @@ class Knight(Piece):
             return False
 
 class Pawn(Piece):
+    def __init__(self,color):
+        self.color = color
+        self.name = "Pawn"
     def is_move_valid(self, origine, destination):
         if origine == destination:
             return False

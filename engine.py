@@ -26,10 +26,10 @@ class Game:
         """
         valid_move = False
         while not valid_move:
-            move       = get_move()
+            move       = self.get_move()
             origin     = move[0]
             piece      = self.at(*origin)
-            valid_move = piece.valid(move) and piece.color == self.turn
+            valid_move = piece.is_move_valid(move) and piece.color == self.turn
 
         piece.move((origin, destination))
 
@@ -42,7 +42,7 @@ class Game:
                 return self.player2_color
         return None
 
-    def init_board():
+    def init_board(self):
         """
         Initializes the board with the classical chess starting position
         """
@@ -74,14 +74,14 @@ class Game:
         Returns a move = (origin, destination).
         This is only a debug implementation and may be overriden by the client.
         """
-        o_column = input("column: ")
-        o_line   = input("line: ")
-        d_column = input("column: ")
-        d_line   = input("line: ")
+        o_column = int(input("column: "))
+        o_line   = int(input("line: "))
+        d_column = int(input("column: "))
+        d_line   = int(input("line: "))
         return ((o_column-1, o_line-1),
                 (d_column-1, d_line-1))
 
-    def at(column, line):
+    def at(self, column, line):
         """
         Returns the piece at given position.
         This function interfaces with position tuples nicer than
@@ -89,7 +89,7 @@ class Game:
         """
         return self.board[column][line]
 
-    def move(origin, destination):
+    def move(self, origin, destination):
         """
         Moves a piece from origin to destination
         Raises a InvalidMoveException if no piece is present at the given
