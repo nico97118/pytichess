@@ -1,8 +1,12 @@
 
 
 class Piece:
+<<<<<<< HEAD
 
     def __init__(self, color):
+=======
+    def __init__(self, color,name):
+>>>>>>> FETCH_HEAD
         self.color = color
         self.name = name
 
@@ -58,10 +62,13 @@ class Queen(Piece):
             return False
 
 class Rook(Piece):
+<<<<<<< HEAD
     def __init__(self, color):
         self.color = color
         self.name = "Rook"
 
+=======
+>>>>>>> FETCH_HEAD
     def is_move_valid(self, origine, destination):
         oc, ol = origine
         dc, dl = destination
